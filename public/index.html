@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>DrawNote Pro</title>
+        <link
+            href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="navbar">
+            <!-- Tools -->
+            <div class="dropdown-trigger">
+                <button class="icon-btn round active" id="toolsBtn">
+                    <i class="bx bx-brush"></i>
+                </button>
+                <div class="dropdown-menu" id="toolsMenu">
+                    <div class="dropdown-section">
+                        <div class="tool-item active" data-tool="pen">
+                            <div class="tool-icon">
+                                <i class="bx bx-pencil"></i>
+                            </div>
+                            <div class="tool-name">Pen</div>
+                        </div>
+                        <div class="tool-item" data-tool="marker">
+                            <div class="tool-icon">
+                                <i class="bx bx-highlight"></i>
+                            </div>
+                            <div class="tool-name">Marker</div>
+                        </div>
+                        <div class="tool-item" data-tool="calligraphy">
+                            <div class="tool-icon">
+                                <i class="bx bx-pen"></i>
+                            </div>
+                            <div class="tool-name">Calligraphy</div>
+                        </div>
+                        <div class="tool-item" data-tool="eraser">
+                            <div class="tool-icon">
+                                <i class="bx bx-eraser"></i>
+                            </div>
+                            <div class="tool-name">Eraser</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transform -->
+            <button class="icon-btn round" id="transformBtn">
+                <i class="bx bx-move"></i>
+            </button>
+
+            <!-- Actions -->
+            <div class="dropdown-trigger">
+                <button class="icon-btn round" id="actionsBtn">
+                    <i class="bx bx-grid-alt"></i>
+                </button>
+                <div class="dropdown-menu" id="actionsMenu">
+                    <div class="dropdown-section">
+                        <div class="tool-item" id="textAction">
+                            <div class="tool-icon">
+                                <i class="bx bx-text"></i>
+                            </div>
+                            <div class="tool-name">Add Text</div>
+                        </div>
+                        <div class="tool-item" id="lineAction">
+                            <div class="tool-icon">
+                                <i class="bx bx-minus"></i>
+                            </div>
+                            <div class="tool-name">Line</div>
+                        </div>
+                        <div class="tool-item" id="rectAction">
+                            <div class="tool-icon">
+                                <i class="bx bx-rectangle"></i>
+                            </div>
+                            <div class="tool-name">Rectangle</div>
+                        </div>
+                        <div class="tool-item" id="circleAction">
+                            <div class="tool-icon">
+                                <i class="bx bx-circle"></i>
+                            </div>
+                            <div class="tool-name">Circle</div>
+                        </div>
+                        <div class="tool-item" id="importAction">
+                            <div class="tool-icon">
+                                <i class="bx bx-image"></i>
+                            </div>
+                            <div class="tool-name">Import Image</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Color -->
+            <div class="dropdown-trigger">
+                <div
+                    class="color-btn-main"
+                    id="colorBtn"
+                    style="background-color: #000000"
+                ></div>
+                <div class="dropdown-menu" id="colorMenu">
+                    <div class="dropdown-section">
+                        <div class="color-grid">
+                            <button
+                                class="color-btn active"
+                                data-color="#000000"
+                                style="background-color: #000000"
+                            ></button>
+                            <button
+                                class="color-btn"
+                                data-color="#ffffff"
+                                style="
+                                    background-color: #ffffff;
+                                    border: 2px solid #ddd;
+                                "
+                            ></button>
+                            <button
+                                class="color-btn"
+                                data-color="#ff4757"
+                                style="background-color: #ff4757"
+                            ></button>
+                            <button
+                                class="color-btn"
+                                data-color="#5352ed"
+                                style="background-color: #5352ed"
+                            ></button>
+                            <button
+                                class="color-btn"
+                                data-color="#1abc9c"
+                                style="background-color: #1abc9c"
+                            ></button>
+                            <button
+                                class="color-btn"
+                                data-color="#ffa502"
+                                style="background-color: #ffa502"
+                            ></button>
+                            <button
+                                class="color-btn"
+                                data-color="#ff6348"
+                                style="background-color: #ff6348"
+                            ></button>
+                            <button
+                                class="color-btn"
+                                data-color="#00d2d3"
+                                style="background-color: #00d2d3"
+                            ></button>
+                            <button
+                                class="color-btn"
+                                data-color="#f368e0"
+                                style="background-color: #f368e0"
+                            ></button>
+                            <button
+                                class="color-btn"
+                                data-color="#ffdd59"
+                                style="background-color: #ffdd59"
+                            ></button>
+                            <button
+                                class="color-btn"
+                                data-color="#48dbfb"
+                                style="background-color: #48dbfb"
+                            ></button>
+                            <button
+                                class="color-btn"
+                                data-color="#ff9ff3"
+                                style="background-color: #ff9ff3"
+                            ></button>
+                        </div>
+                    </div>
+                    <div class="dropdown-section">
+                        <div class="setting-label">Custom</div>
+                        <input
+                            type="color"
+                            id="customColorPicker"
+                            value="#000000"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <button class="icon-btn round" id="clearBtn">
+                <i class="bx bx-trash"></i>
+            </button>
+
+            <button class="icon-btn round" id="undoBtn">
+                <i class="bx bx-undo"></i>
+            </button>
+
+            <button class="icon-btn round" id="redoBtn">
+                <i class="bx bx-redo"></i>
+            </button>
+
+            <!-- Brush Settings -->
+            <div class="dropdown-trigger">
+                <button class="icon-btn round" id="brushSettingsBtn">
+                    <i class="bx bx-slider"></i>
+                </button>
+                <div class="dropdown-menu" id="brushSettingsMenu">
+                    <div class="dropdown-section">
+                        <div class="setting-label">Size</div>
+                        <div class="brush-control">
+                            <input
+                                type="range"
+                                id="brushSize"
+                                min="1"
+                                max="100"
+                                value="3"
+                                class="brush-slider"
+                            />
+                            <div class="brush-value" id="brushSizeValue">
+                                3px
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown-section">
+                        <div class="setting-label">Opacity</div>
+                        <div class="brush-control">
+                            <input
+                                type="range"
+                                id="brushOpacity"
+                                min="10"
+                                max="100"
+                                value="100"
+                                class="brush-slider"
+                            />
+                            <div class="brush-value" id="brushOpacityValue">
+                                100%
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown-section">
+                        <div class="setting-label">Stabilization</div>
+                        <div class="brush-control">
+                            <input
+                                type="range"
+                                id="brushStabilization"
+                                min="0"
+                                max="15"
+                                value="5"
+                                class="brush-slider"
+                            />
+                            <div
+                                class="brush-value"
+                                id="brushStabilizationValue"
+                            >
+                                5
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown-section">
+                        <div class="setting-label">Style</div>
+                        <div class="setting-options">
+                            <button
+                                class="option-btn active"
+                                data-style="solid"
+                            >
+                                Solid
+                            </button>
+                            <button class="option-btn" data-style="dashed">
+                                Dashed
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-left: auto"></div>
+
+            <button class="icon-btn round" id="downloadBtn">
+                <i class="bx bx-download"></i>
+            </button>
+
+            <button class="icon-btn round" id="settingsBtn">
+                <i class="bx bx-cog"></i>
+            </button>
+        </div>
+
+        <div class="main-container" id="mainContainer">
+            <div class="canvas-wrapper" id="canvasWrapper">
+                <canvas id="patternCanvas"></canvas>
+                <canvas id="drawingCanvas"></canvas>
+            </div>
+
+            <div class="selection-box" id="selectionBox">
+                <div class="resize-handle nw"></div>
+                <div class="resize-handle n"></div>
+                <div class="resize-handle ne"></div>
+                <div class="resize-handle e"></div>
+                <div class="resize-handle se"></div>
+                <div class="resize-handle s"></div>
+                <div class="resize-handle sw"></div>
+                <div class="resize-handle w"></div>
+            </div>
+
+            <div class="transform-controls" id="transformControls">
+                <button class="transform-btn" id="flipHBtn">
+                    <i class="bx bx-reflect-horizontal"></i>
+                </button>
+                <button class="transform-btn" id="flipVBtn">
+                    <i class="bx bx-reflect-vertical"></i>
+                </button>
+                <button class="transform-btn" id="rotateLeftBtn">
+                    <i class="bx bx-rotate-left"></i>
+                </button>
+                <button class="transform-btn" id="rotateRightBtn">
+                    <i class="bx bx-rotate-right"></i>
+                </button>
+                <button class="transform-btn" id="applyTransformBtn">
+                    <i class="bx bx-check"></i>
+                </button>
+            </div>
+
+            <div class="zoom-controls">
+                <button class="zoom-btn" id="resetZoomBtn">
+                    <i class="bx bx-reset"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="settings-panel" id="settingsPanel">
+            <div class="settings-title">Settings</div>
+
+            <div class="setting-group">
+                <div class="setting-label">Paper Type</div>
+                <div class="setting-options">
+                    <button class="option-btn active" data-pattern="none">
+                        <i class="bx bx-square"></i>
+                    </button>
+                    <button class="option-btn" data-pattern="grid">
+                        <i class="bx bx-grid-alt"></i>
+                    </button>
+                    <button class="option-btn" data-pattern="lines">
+                        <i class="bx bx-align-justify"></i>
+                    </button>
+                    <button class="option-btn" data-pattern="dots">
+                        <i class="bx bx-dots-horizontal-rounded"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <div class="toggle-container">
+                    <div class="toggle-label">Apple Pencil Only</div>
+                    <div class="toggle" id="penOnlyToggle">
+                        <div class="toggle-slider"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="downloadModal">
+            <div class="modal">
+                <div class="modal-title">Export Drawing</div>
+                <div class="setting-group">
+                    <div class="setting-label">Format</div>
+                    <div class="setting-options">
+                        <button class="option-btn active" data-format="png">
+                            PNG
+                        </button>
+                        <button class="option-btn" data-format="jpg">
+                            JPG
+                        </button>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button class="btn" id="cancelDownloadBtn">Cancel</button>
+                    <button class="btn primary" id="confirmDownloadBtn">
+                        Download
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <input type="file" id="imageInput" accept="image/*" />
+  
+    </body>
+</html>
